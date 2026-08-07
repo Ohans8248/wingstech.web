@@ -1214,11 +1214,55 @@ solarForm?.addEventListener('submit', (e) => {
   const name = (document.getElementById('solar-name') as HTMLInputElement).value;
   const desc = (document.getElementById('solar-desc') as HTMLTextAreaElement).value;
 
-  const msg = `*Solar Solutions Inquiry*\nType: ${type}\nName: ${name}\n\nRequirements:\n${desc}`;
-  window.open(`https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-  
-  solarForm.reset();
-  document.getElementById('solar-form-container')?.classList.add('hidden');
+  const payload = {
+    formType: 'solar',
+    type,
+    name,
+    problem: desc
+  };
+
+  const submitBtn = solarForm?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+  const originalText = submitBtn?.innerHTML || '<i class="fa-brands fa-whatsapp text-xl"></i> Contact via WhatsApp';
+
+  if (submitBtn) {
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+  }
+
+  fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payload)
+  })
+  .then(async (res) => {
+    if (res.ok) {
+      const msg = `*Solar Solutions Inquiry*\nType: ${type}\nName: ${name}\n\nRequirements:\n${desc}`;
+      const waLink = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+      
+      if (submitBtn) {
+        submitBtn.outerHTML = `
+        <div class="text-center mt-4 p-4 border-2 border-green-200 bg-green-50 rounded-xl">
+          <p class="text-xl font-bold text-green-700 mb-4">Request Submitted!</p>
+          <a href="${waLink}" target="_blank" class="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2 text-lg shadow">
+            <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp Now
+          </a>
+        </div>
+        `;
+      }
+      
+      solarForm.reset();
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  })
+  .catch((err) => {
+    console.error('Error submitting form:', err);
+    if (submitBtn) {
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+  });
 });
 
 
