@@ -43,6 +43,7 @@ const cartFloatBadge = document.getElementById('cart-float-badge');
 // Forms & specific inputs
 const rndForm = document.getElementById('rnd-form') as HTMLFormElement;
 const solarForm = document.getElementById('solar-form') as HTMLFormElement;
+const smartHomeForm = document.getElementById('smart-home-form') as HTMLFormElement;
 const checkoutForm = document.getElementById('checkout-form') as HTMLFormElement;
 const checkoutItemsContainer = document.getElementById('checkout-items');
 const checkoutTotal = document.getElementById('checkout-total');
@@ -91,6 +92,25 @@ function navigateTo(routeId: string) {
       v.classList.remove('active');
     }
   });
+
+  // Update document.title
+  switch (routeId) {
+    case 'ecommerce':
+      document.title = 'WingsTech - Robot Shop';
+      break;
+    case 'solar':
+      document.title = 'WingsTech - Solar PV Setup';
+      break;
+    case 'rnd':
+    case 'rnd-form':
+      document.title = 'WingsTech - R&D Solutions';
+      break;
+    case 'smart-home':
+      document.title = 'WingsTech - Smart Home';
+      break;
+    default:
+      document.title = 'WingsTech';
+  }
 
   // Update nav active states
   navLinks.forEach(link => {
@@ -357,6 +377,16 @@ function initializeSiteContent() {
   if (headerLogo && SITE_ASSETS.logoURL) headerLogo.src = SITE_ASSETS.logoURL;
   const footerLogo = document.getElementById('global-logo-footer') as HTMLImageElement;
   if (footerLogo && SITE_ASSETS.logoURL) footerLogo.src = SITE_ASSETS.logoURL;
+
+  if (SITE_ASSETS.faviconUrl) {
+    let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.href = SITE_ASSETS.faviconUrl;
+  }
 
   // Set Page Titles
   const globalLogoText = document.getElementById('global-logo-text');
@@ -1252,6 +1282,83 @@ solarForm?.addEventListener('submit', (e) => {
       }
       
       solarForm.reset();
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  })
+  .catch((err) => {
+    console.error('Error submitting form:', err);
+    if (submitBtn) {
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+});
+
+
+document.querySelectorAll('.smart-home-action-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const val = (e.currentTarget as HTMLElement).getAttribute('data-type') || '';
+    document.getElementById('smart-home-type-input')?.setAttribute('value', val);
+    const formContainer = document.getElementById('smart-home-form-container');
+    formContainer?.classList.remove('hidden');
+    formContainer?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+smartHomeForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = (document.getElementById('smart-home-name') as HTMLInputElement).value;
+  const org = (document.getElementById('smart-home-org') as HTMLInputElement).value;
+  const role = (document.getElementById('smart-home-role') as HTMLInputElement).value;
+  const loc = (document.getElementById('smart-home-location') as HTMLInputElement).value;
+  const phone = (document.getElementById('smart-home-phone') as HTMLInputElement).value;
+  const email = (document.getElementById('smart-home-email') as HTMLInputElement).value;
+  const desc = (document.getElementById('smart-home-desc') as HTMLTextAreaElement).value;
+
+  const payload = {
+    formType: 'inquiry',
+    domain: 'Smart Home Automation',
+    name,
+    problem: desc,
+    organization: org,
+    role,
+    location: loc,
+    contact: phone,
+    emailAddress: email
+  };
+
+  const submitBtn = smartHomeForm?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+  const originalText = submitBtn?.innerHTML || 'Submit Request';
+
+  if (submitBtn) {
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+  }
+
+  fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payload)
+  })
+  .then(async (res) => {
+    if (res.ok) {
+      const waText = `*New Inquiry*\n*Domain:* ${payload.domain}\n*Name:* ${payload.name}\n*Organization:* ${payload.organization}\n*Role:* ${payload.role}\n*Location:* ${payload.location}\n*Contact:* ${payload.contact}\n*Email:* ${payload.emailAddress}\n*Problem:* ${payload.problem}`;
+      const waLink = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(waText)}`;
+      
+      if (submitBtn) {
+        submitBtn.outerHTML = `
+        <div class="text-center mt-4 p-4 border-2 border-green-200 bg-green-50 rounded-xl">
+          <p class="text-xl font-bold text-green-700 mb-4">Request Submitted!</p>
+          <a href="${waLink}" target="_blank" class="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2 text-lg shadow">
+            <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp Now
+          </a>
+        </div>
+        `;
+      }
+      
+      smartHomeForm.reset();
     } else {
       throw new Error('Network response was not ok');
     }

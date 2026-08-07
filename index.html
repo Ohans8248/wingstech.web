@@ -19,7 +19,7 @@
         <!-- Desktop Nav -->
         <nav class="hidden md:flex gap-8 font-medium text-sm uppercase tracking-wide text-slate-600">
           <a href="#home" data-route="home" class="nav-link hover:text-cyan-600 transition-colors">Home</a>
-          <a href="#ecommerce" data-route="ecommerce" class="nav-link hover:text-cyan-600 transition-colors">Products</a>
+          <a href="#ecommerce" data-route="ecommerce" class="nav-link hover:text-cyan-600 transition-colors">Robot Shop</a>
           <a href="#portfolio" data-route="portfolio" class="nav-link hover:text-cyan-600 transition-colors">Portfolio</a>
           <a href="#contact" data-route="contact" class="nav-link hover:text-cyan-600 transition-colors">Contact Us</a>
         </nav>
@@ -40,7 +40,7 @@
     <!-- Mobile Nav Dropdown -->
     <div id="mobile-nav" class="hidden fixed inset-0 z-40 bg-white top-16 flex flex-col p-6 gap-6 font-medium text-lg border-b border-slate-200 shadow-xl">
       <a href="#home" data-route="home" class="nav-link border-b pb-2 hover:text-cyan-600">Home</a>
-      <a href="#ecommerce" data-route="ecommerce" class="nav-link border-b pb-2 hover:text-cyan-600">Products</a>
+      <a href="#ecommerce" data-route="ecommerce" class="nav-link border-b pb-2 hover:text-cyan-600">Robot Shop</a>
       <a href="#portfolio" data-route="portfolio" class="nav-link border-b pb-2 hover:text-cyan-600">Portfolio</a>
       <a href="#contact" data-route="contact" class="nav-link border-b pb-2 hover:text-cyan-600">Contact Us</a>
     </div>
@@ -98,6 +98,31 @@
         <div class="flex-grow bg-slate-50 py-4 px-2 flex items-center justify-center">
           <div class="w-full max-w-6xl mx-auto grid md:grid-cols-3 gap-3 md:gap-6">
             
+            <button data-route="smart-home" class="nav-link relative overflow-hidden flex flex-col items-center text-center p-3 md:p-6 border-2 border-transparent bg-slate-900 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-5px_rgba(249,115,22,0.6)] hover:bg-slate-800 hover:border-orange-400 transition-all duration-300 group">
+              <div class="absolute top-0 right-0 p-2 text-orange-500/5 text-5xl md:text-7xl -mr-3 md:-mr-6 -mt-3 md:-mt-6 pointer-events-none group-hover:text-orange-500/10 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-[1em] h-[1em]">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                  <path d="M12 18h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                  <g transform="matrix(0.75 0 0 0.75 3 2.75)">
+                    <path d="M12 6.5 L7.5 10 V15 H16.5 V10 Z" fill="currentColor"></path>
+                    <rect x="10.5" y="11" width="3" height="3" fill="#0f172a"></rect>
+                  </g>
+                </svg>
+              </div>
+              <div class="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-2 md:mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-9 h-9 md:w-12 md:h-12 text-orange-400">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+                  <path d="M12 18h.01" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                  <g transform="matrix(0.75 0 0 0.75 3 2.75)">
+                    <path d="M12 6.5 L7.5 10 V15 H16.5 V10 Z" fill="currentColor"></path>
+                    <rect x="10.5" y="11" width="3" height="3" fill="#0f172a"></rect>
+                  </g>
+                </svg>
+              </div>
+              <h3 id="action-2-title" class="text-base md:text-xl font-bold text-white mb-1 md:mb-3 tracking-tight"></h3>
+              <p id="action-2-desc" class="text-slate-400 text-[11px] md:text-sm leading-tight border-t border-slate-800/50 pt-2 md:pt-3 w-full"></p>
+            </button>
+            
             <button data-route="rnd" class="nav-link relative overflow-hidden flex flex-col items-center text-center p-3 md:p-6 border-2 border-slate-200 border-transparent bg-slate-900 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-5px_rgba(6,182,212,0.6)] hover:bg-slate-800 hover:border-cyan-400 transition-all duration-300 group">
               <div class="absolute top-0 right-0 p-2 text-cyan-500/5 text-5xl md:text-7xl -mr-3 md:-mr-6 -mt-3 md:-mt-6 pointer-events-none group-hover:text-cyan-500/10 transition-colors"><i class="fa-solid fa-gear"></i></div>
               <div class="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-2 md:mb-4 shadow-inner group-hover:scale-110 transition-transform">
@@ -105,15 +130,6 @@
               </div>
               <h3 id="action-1-title" class="text-base md:text-xl font-bold text-white mb-1 md:mb-3 tracking-tight"></h3>
               <p id="action-1-desc" class="text-slate-400 text-[11px] md:text-sm leading-tight border-t border-slate-800/50 pt-2 md:pt-3 w-full"></p>
-            </button>
-
-            <button data-route="ecommerce" data-category="robots" class="nav-link relative overflow-hidden flex flex-col items-center text-center p-3 md:p-6 border-2 border-transparent bg-slate-900 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-5px_rgba(249,115,22,0.6)] hover:bg-slate-800 hover:border-orange-400 transition-all duration-300 group">
-              <div class="absolute top-0 right-0 p-2 text-orange-500/5 text-5xl md:text-7xl -mr-3 md:-mr-6 -mt-3 md:-mt-6 pointer-events-none group-hover:text-orange-500/10 transition-colors"><i class="fa-solid fa-robot"></i></div>
-              <div class="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-2 md:mb-4 shadow-inner group-hover:scale-110 transition-transform">
-                <i class="fa-solid fa-robot text-xl md:text-3xl text-orange-400"></i>
-              </div>
-              <h3 id="action-2-title" class="text-base md:text-xl font-bold text-white mb-1 md:mb-3 tracking-tight"></h3>
-              <p id="action-2-desc" class="text-slate-400 text-[11px] md:text-sm leading-tight border-t border-slate-800/50 pt-2 md:pt-3 w-full"></p>
             </button>
 
             <button data-route="solar-install" class="nav-link relative overflow-hidden flex flex-col items-center text-center p-3 md:p-6 border-2 border-transparent bg-slate-900 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-5px_rgba(234,179,8,0.6)] hover:bg-slate-800 hover:border-yellow-400 transition-all duration-300 group">
@@ -239,7 +255,7 @@
           <!-- Product Grid -->
           <div class="w-full md:w-3/4">
              <div class="flex justify-between items-center mb-6">
-               <h2 id="ecom-grid-title" class="text-2xl font-bold text-slate-800">Products</h2>
+               <h2 id="ecom-grid-title" class="text-2xl font-bold text-slate-800">Robot Shop</h2>
                
                <!-- Sort Select -->
                <select id="product-sort" class="border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white">
@@ -499,6 +515,55 @@
         </div>
       </section>
 
+      <!-- Smart Home View -->
+      <section id="view-smart-home" class="view hidden py-12 px-4 max-w-3xl mx-auto min-h-screen">
+        <button class="nav-link text-cyan-600 font-medium hover:underline text-sm flex items-center gap-2 mb-6" data-route="home"><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 w-full">
+           <h3 class="text-2xl font-bold mb-6 text-slate-800">Inquiry for: Smart Home Automation</h3>
+           <form id="smart-home-form" class="flex flex-col gap-4">
+              <input type="hidden" id="smart-home-type-input" value="Smart Home Automation" />
+              
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Your Name *</label>
+                  <input type="text" id="smart-home-name" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Organization Name *</label>
+                  <input type="text" id="smart-home-org" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Your Role *</label>
+                  <input type="text" id="smart-home-role" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Office Location *</label>
+                  <input type="text" id="smart-home-location" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Contact Number *</label>
+                  <input type="tel" id="smart-home-phone" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Email Address *</label>
+                  <input type="email" id="smart-home-email" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Brief Description of Service Required *</label>
+                <textarea id="smart-home-desc" required rows="3" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition"></textarea>
+              </div>
+              <button type="submit" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg transition-colors flex justify-center items-center gap-2 mt-2 w-full text-lg shadow-md">
+                 Submit Request
+              </button>
+           </form>
+        </div>
+      </section>
+
       <!-- 5. About Us View -->
       <section id="view-about" class="view hidden max-w-4xl mx-auto py-16 px-4 text-center min-h-screen">
          <h1 id="about-title" class="text-4xl font-bold text-slate-800 mb-6"></h1>
@@ -550,7 +615,7 @@
           <ul class="list-disc pl-6 text-slate-600 flex flex-col gap-2">
             <li><a href="#home" data-route="home" class="nav-link hover:underline text-cyan-600">Home</a></li>
             <li><a href="#rnd" data-route="rnd" class="nav-link hover:underline text-cyan-600">R&D Portfolio</a></li>
-            <li><a href="#ecommerce" data-route="ecommerce" class="nav-link hover:underline text-cyan-600">Products</a></li>
+            <li><a href="#ecommerce" data-route="ecommerce" class="nav-link hover:underline text-cyan-600">Robot Shop</a></li>
             <li><a href="#solar" data-route="solar" class="nav-link hover:underline text-cyan-600">Tools & Solutions</a></li>
             <li><a href="#checkout" data-route="checkout" class="nav-link hover:underline text-cyan-600">Checkout</a></li>
             <li><a href="#about" data-route="about" class="nav-link hover:underline text-cyan-600">About Us</a></li>

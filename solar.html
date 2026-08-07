@@ -1,0 +1,39 @@
+      <section id="view-solar" class="view hidden py-12 px-4 max-w-5xl mx-auto min-h-screen">
+        <h2 class="text-3xl font-bold text-slate-800 mb-12 text-center border-b pb-4">Tools & Solutions</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
+           <button class="solar-action-btn flex flex-col items-center text-center p-8 bg-white border-2 rounded-xl shadow-sm hover:shadow-lg hover:border-yellow-400 transition-all cursor-pointer" data-type="A2Z Setup">
+              <div class="w-20 h-20 rounded-full bg-yellow-100 flex items-center justify-center mb-6 text-yellow-600 text-4xl">
+                 <i class="fa-solid fa-tools"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-slate-800">Installation & Setup</h3>
+              <p class="text-slate-500">From inspection and capacity planning to full installation. Let us make you self-reliant.</p>
+           </button>
+
+           <button class="nav-link flex flex-col items-center text-center p-8 bg-white border-2 rounded-xl shadow-sm hover:shadow-lg hover:border-cyan-400 transition-all cursor-pointer" data-route="ecommerce" data-category="tools">
+              <div class="w-20 h-20 rounded-full bg-cyan-100 flex items-center justify-center mb-6 text-cyan-600 text-4xl">
+                 <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-slate-800">Purchase Tools & Solutions</h3>
+              <p class="text-slate-500">Browse our tested tools and solutions in our shop.</p>
+           </button>
+        </div>
+
+        <div id="solar-form-container" class="hidden bg-white p-8 rounded-2xl shadow-lg border border-slate-100 max-w-2xl mx-auto mt-4">
+           <h3 class="text-xl font-bold mb-6 text-slate-800">Book an Inspection / Setup</h3>
+           <form id="solar-form" class="flex flex-col gap-5">
+              <input type="hidden" id="solar-type-input" value="Installation Request" />
+              <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Your Name / Rep *</label>
+                <input type="text" id="solar-name" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-yellow-500 outline-none transition">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Property Type & Energy Need *</label>
+                <textarea id="solar-desc" required rows="4" class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-yellow-500 outline-none transition" placeholder="Is this for a home or office? Describe your typical energy consumption."></textarea>
+              </div>
+              <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-colors flex justify-center items-center gap-2 mt-2">
+                 <i class="fa-brands fa-whatsapp text-xl"></i> Contact via WhatsApp
+              </button>
+           </form>
+        </div>
+      </section>

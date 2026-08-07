@@ -1,14 +1,16 @@
 // GLOBAL LOGO AND BRANDING
 export interface SiteAssets {
   logoURL: string;
+  faviconUrl?: string;
   hero_rnd: string;
   hero_robots: string;
   hero_solar: string;
-  [key: string]: string;
+  [key: string]: string | undefined;
 }
 
 export const SITE_ASSETS: SiteAssets = {
   logoURL: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/LogoLight.png?w=90&h=90&fit=crop', // Add your logo image here
+  faviconUrl: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/LogoLight.png?w=90&h=90&fit=crop',
   hero_rnd: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/RnD_Image.png?auto=format&fit=crop&q=80', 
   hero_robots: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/Robots.png?auto=format&fit=crop&q=80',
   hero_solar: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80'
@@ -37,15 +39,15 @@ export interface WebsiteContent {
 
 export const SITE_TEXT: WebsiteContent = {
   hero_1_title: "R&D Solutions",
-  hero_1_desc: "Need R&D Support for your company? We provide custom hi-tech solutions to any of your engineering problems.",
-  hero_2_title: "Latest Affordable Robots",
-  hero_2_desc: "Need robots to learn robotics or for industry? We have a rich collection of trendy robots to meet your/ organization's need.",
-  hero_3_title: "Solar Power Installation",
-  hero_3_desc: "Suffering From Load-Shedding? Bills too High? We can Take Complete Responsibility of Setting Solar Setup!",
+  hero_1_desc: "We can provide custom hi-tech solutions to any of your engineering problems!",
+  hero_2_title: "Cutting-Edge Robots",
+  hero_2_desc: "Need robots to learn or for industry? We have a rich collection of robots & tools!",
+  hero_3_title: "Solar PV Installation",
+  hero_3_desc: "Thinking of Solar Setup? We can Take Complete Responsibility of Setting Solar Setup!",
   action_card_1_title: "Get R&D Solutions",
-  action_card_1_desc: "Let us handle any of your hi-tech industry/org. problems.",
-  action_card_2_title: "Buy Robots",
-  action_card_2_desc: "We have made in Bangladesh robots for self-learning, institutes & industry.",
+  action_card_1_desc: "Let us handle any of your hi-tech problems. We love to solve!",
+  action_card_2_title: "Make Home Smart",
+  action_card_2_desc: "Let's talk about making your flat a smart & IOT automated residence!",
   action_card_3_title: "A2Z Solar Setup Support",
   action_card_3_desc: "Rooftop/Grounded, we can provide complete support.",
   about_us_title: "About WingsTech",
