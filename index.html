@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WingsTech - Robotics & Tools & Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm h-16 flex items-center">
+      <div class="w-full max-w-7xl mx-auto px-4 flex items-center justify-between">
+        <a href="#home" data-route="home" class="nav-link flex items-center gap-2 text-2xl font-bold text-slate-800 tracking-tight group">
+          <img id="global-logo-header" src="" alt="WingsTech Logo" class="h-8 object-contain">
+          <span id="global-logo-text" class="hidden md:inline-block">Wings<span class="text-cyan-600">Tech</span></span>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-8 font-medium text-sm uppercase tracking-wide text-slate-600">
+          <a href="#home" data-route="home" class="nav-link hover:text-cyan-600 transition-colors">Home</a>
+          <a href="#ecommerce" data-route="ecommerce" class="nav-link hover:text-cyan-600 transition-colors">Products</a>
+          <a href="#portfolio" data-route="portfolio" class="nav-link hover:text-cyan-600 transition-colors">Portfolio</a>
+          <a href="#contact" data-route="contact" class="nav-link hover:text-cyan-600 transition-colors">Contact Us</a>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-slate-600 text-2xl focus:outline-none">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Cart Icon in Header -->
+        <button id="header-cart-btn" class="ml-4 relative text-slate-600 hover:text-cyan-600 transition-colors text-xl">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="header-cart-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Nav Dropdown -->
+    <div id="mobile-nav" class="hidden fixed inset-0 z-40 bg-white top-16 flex flex-col p-6 gap-6 font-medium text-lg border-b border-slate-200 shadow-xl">
+      <a href="#home" data-route="home" class="nav-link border-b pb-2 hover:text-cyan-600">Home</a>
+      <a href="#ecommerce" data-route="ecommerce" class="nav-link border-b pb-2 hover:text-cyan-600">Products</a>
+      <a href="#portfolio" data-route="portfolio" class="nav-link border-b pb-2 hover:text-cyan-600">Portfolio</a>
+      <a href="#contact" data-route="contact" class="nav-link border-b pb-2 hover:text-cyan-600">Contact Us</a>
+    </div>
+
+    <!-- Main Content Container -->
+    <main id="app-container" class="flex-grow w-full relative">
+      <!-- 1. Home View -->
+      <section id="view-home" class="view hidden min-h-[calc(100vh-64px)] flex-col">
+        <!-- Top Half: Hero Carousel -->
+        <div class="h-[28vh] md:h-[40vh] relative overflow-hidden flex items-center group bg-slate-900">
+          
+          <!-- Slides Container -->
+          <div id="hero-slides" class="w-full h-full relative">
+            <!-- Slide 1 -->
+            <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-700 opacity-100 z-10">
+              <div class="absolute inset-0 bg-cover bg-center opacity-30" id="hero-1-bg"></div>
+              <div class="absolute inset-0 flex flex-col justify-center px-8 md:px-16 max-w-4xl z-20">
+                <h1 id="hero-1-title" class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 drop-shadow-md"></h1>
+                <p id="hero-1-desc" class="text-lg md:text-xl text-cyan-50 font-light drop-shadow"></p>
+              </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-700 opacity-0 z-0">
+              <div class="absolute inset-0 bg-cover bg-center opacity-15" id="hero-2-bg"></div>
+              <div class="absolute inset-0 flex flex-col justify-center px-8 md:px-16 max-w-4xl z-20">
+                <h1 id="hero-2-title" class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 drop-shadow-md"></h1>
+                <p id="hero-2-desc" class="text-lg md:text-xl text-orange-50 font-light drop-shadow"></p>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-700 opacity-0 z-0">
+              <div class="absolute inset-0 bg-cover bg-center opacity-30" id="hero-3-bg"></div>
+              <div class="absolute inset-0 flex flex-col justify-center px-8 md:px-16 max-w-4xl z-20">
+                <h1 id="hero-3-title" class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4 drop-shadow-md"></h1>
+                <p id="hero-3-desc" class="text-lg md:text-xl text-yellow-50 font-light drop-shadow"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-3 z-30">
+            <button class="hero-dot w-3 h-3 rounded-full bg-white opacity-100 transition-opacity" data-slide="0"></button>
+            <button class="hero-dot w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" data-slide="1"></button>
+            <button class="hero-dot w-3 h-3 rounded-full bg-white opacity-50 transition-opacity" data-slide="2"></button>
+          </div>
+          
+          <button id="hero-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/60 text-white rounded-full flex items-center justify-center z-30 transition-colors backdrop-blur-sm">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        
+        <!-- Bottom Half: 3 Action Cards -->
+        <div class="flex-grow bg-slate-50 py-4 px-2 flex items-center justify-center">
+          <div class="w-full max-w-6xl mx-auto grid md:grid-cols-3 gap-3 md:gap-6">
+            
+            <button data-route="rnd" class="nav-link relative overflow-hidden flex flex-col items-center text-center p-3 md:p-6 border-2 border-slate-200 border-transparent bg-slate-900 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-5px_rgba(6,182,212,0.6)] hover:bg-slate-800 hover:border-cyan-400 transition-all duration-300 group">
+              <div class="absolute top-0 right-0 p-2 text-cyan-500/5 text-5xl md:text-7xl -mr-3 md:-mr-6 -mt-3 md:-mt-6 pointer-events-none group-hover:text-cyan-500/10 transition-colors"><i class="fa-solid fa-gear"></i></div>
+              <div class="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-2 md:mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-gear text-xl md:text-3xl text-cyan-400"></i>
+              </div>
+              <h3 id="action-1-title" class="text-base md:text-xl font-bold text-white mb-1 md:mb-3 tracking-tight"></h3>
+              <p id="action-1-desc" class="text-slate-400 text-[11px] md:text-sm leading-tight border-t border-slate-800/50 pt-2 md:pt-3 w-full"></p>
+            </button>
+
+            <button data-route="ecommerce" data-category="robots" class="nav-link relative overflow-hidden flex flex-col items-center text-center p-3 md:p-6 border-2 border-transparent bg-slate-900 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-5px_rgba(249,115,22,0.6)] hover:bg-slate-800 hover:border-orange-400 transition-all duration-300 group">
+              <div class="absolute top-0 right-0 p-2 text-orange-500/5 text-5xl md:text-7xl -mr-3 md:-mr-6 -mt-3 md:-mt-6 pointer-events-none group-hover:text-orange-500/10 transition-colors"><i class="fa-solid fa-robot"></i></div>
+              <div class="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-2 md:mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-robot text-xl md:text-3xl text-orange-400"></i>
+              </div>
+              <h3 id="action-2-title" class="text-base md:text-xl font-bold text-white mb-1 md:mb-3 tracking-tight"></h3>
+              <p id="action-2-desc" class="text-slate-400 text-[11px] md:text-sm leading-tight border-t border-slate-800/50 pt-2 md:pt-3 w-full"></p>
+            </button>
+
+            <button data-route="solar-install" class="nav-link relative overflow-hidden flex flex-col items-center text-center p-3 md:p-6 border-2 border-transparent bg-slate-900 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-5px_rgba(234,179,8,0.6)] hover:bg-slate-800 hover:border-yellow-400 transition-all duration-300 group">
+              <div class="absolute top-0 right-0 p-2 text-yellow-500/5 text-5xl md:text-7xl -mr-3 md:-mr-6 -mt-3 md:-mt-6 pointer-events-none group-hover:text-yellow-500/10 transition-colors"><i class="fa-solid fa-solar-panel"></i></div>
+              <div class="w-10 h-10 md:w-16 md:h-16 rounded-lg md:rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center mb-2 md:mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-solar-panel text-xl md:text-3xl text-yellow-400"></i>
+              </div>
+              <h3 id="action-3-title" class="text-base md:text-xl font-bold text-white mb-1 md:mb-3 tracking-tight"></h3>
+              <p id="action-3-desc" class="text-slate-400 text-[11px] md:text-sm leading-tight border-t border-slate-800/50 pt-2 md:pt-3 w-full"></p>
+            </button>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. R&D Expertise View -->
+      <section id="view-rnd" class="view hidden py-12 px-4 max-w-5xl mx-auto min-h-screen pb-24">
+        <h2 id="view-rnd-title" class="text-3xl font-bold text-slate-800 mb-8 text-center border-b pb-4">Our Service Domains</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12" id="rnd-categories">
+          <!-- buttons rendered by JS -->
+        </div>
+        
+        <div id="rnd-action-bar" class="hidden grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-8 pt-6 border-t border-slate-100">
+             <div class="hidden md:block"></div>
+             <button id="rnd-clear-btn" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md">
+               Clear Selection
+             </button>
+             <button id="rnd-proceed-btn" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md">
+               Proceed
+             </button>
+             <div class="hidden md:block"></div>
+        </div>
+      </section>
+
+      <!-- 2.5 R&D Form View -->
+      <section id="view-rnd-form" class="view hidden py-12 px-4 max-w-3xl mx-auto min-h-screen">
+        <button class="nav-link text-cyan-600 font-medium hover:underline text-sm flex items-center gap-2 mb-6" data-route="rnd"><i class="fa-solid fa-arrow-left"></i> Back to Domains</button>
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 w-full">
+           <h3 class="text-2xl font-bold mb-6 text-slate-800" id="rnd-form-title">Tell us about your need</h3>
+           <form id="rnd-form" class="flex flex-col gap-4">
+              <input type="hidden" id="rnd-category-input" />
+              
+              <div id="rnd-other-domain-container" class="hidden">
+                 <label class="block text-sm font-medium text-slate-600 mb-1">Domain / Sector of Problem *</label>
+                 <input type="text" id="rnd-other-domain" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Your Name *</label>
+                  <input type="text" id="rnd-name" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Organization Name *</label>
+                  <input type="text" id="rnd-org" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Your Role *</label>
+                  <input type="text" id="rnd-role" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Office Location *</label>
+                  <input type="text" id="rnd-location" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Contact Number *</label>
+                  <input type="tel" id="rnd-phone" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Email Address *</label>
+                  <input type="email" id="rnd-email" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition">
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Brief Description of Service Required *</label>
+                <textarea id="rnd-desc" required rows="3" class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-cyan-500 outline-none transition"></textarea>
+              </div>
+              <button type="submit" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg transition-colors flex justify-center items-center gap-2 mt-2 w-full text-lg shadow-md">
+                 Submit Request
+              </button>
+           </form>
+        </div>
+      </section>
+
+      <!-- 2.75 Portfolio View -->
+      <section id="view-portfolio" class="view hidden py-12 px-4 max-w-6xl mx-auto min-h-screen">
+        <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center border-b pb-4">Our Portfolio</h2>
+        <div class="grid md:grid-cols-2 gap-8 mb-16" id="portfolio-grid">
+           <!-- Loaded by JS -->
+        </div>
+        
+        <div class="max-w-5xl mx-auto py-16 px-4 text-center">
+           <h1 id="portfolio-why-title" class="text-4xl font-bold text-slate-800 mb-6"></h1>
+           <div class="w-24 h-1 bg-cyan-600 mx-auto mb-12"></div>
+           <div id="portfolio-why-grid" class="grid md:grid-cols-2 gap-6 text-left">
+           </div>
+        </div>
+      </section>
+
+      <!-- 3. E-Commerce View -->
+      <section id="view-ecommerce" class="view hidden max-w-7xl mx-auto p-4 md:py-8 min-h-screen">
+        <div class="flex flex-col md:flex-row gap-8">
+          <!-- Sidebar -->
+          <div class="w-full md:w-1/4">
+             <div class="sticky top-24 bg-white rounded-xl shadow-md border border-slate-100 p-4">
+                <h3 class="text-lg font-bold text-slate-800 mb-4 border-b pb-2">Categories</h3>
+                <div class="flex flex-col gap-2">
+                   <button id="tab-robots" class="ecom-tab-btn active text-left px-4 py-2 rounded-lg font-medium text-cyan-700 bg-cyan-50 transition-colors" data-tab="robots">
+                     Our Robots
+                   </button>
+                   <button id="tab-solar" class="ecom-tab-btn text-left px-4 py-2 rounded-lg font-medium text-slate-600 hover:bg-slate-50 border border-transparent transition-colors" data-tab="tools">
+                     Tools & Solutions
+                   </button>
+                </div>
+             </div>
+          </div>
+          
+          <!-- Product Grid -->
+          <div class="w-full md:w-3/4">
+             <div class="flex justify-between items-center mb-6">
+               <h2 id="ecom-grid-title" class="text-2xl font-bold text-slate-800">Products</h2>
+               
+               <!-- Sort Select -->
+               <select id="product-sort" class="border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-white">
+                 <option value="default">Default Sort</option>
+                 <option value="price-asc">Price: Low to High</option>
+                 <option value="price-desc">Price: High to Low</option>
+                 <option value="name-asc">Name: A to Z</option>
+               </select>
+             </div>
+             
+             <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Injected via JS -->
+             </div>
+
+             <!-- Pagination -->
+             <div id="pagination-controls" class="flex justify-center gap-2 hidden">
+                <button id="prev-page" class="px-4 py-2 bg-white border-2 rounded-lg hover:bg-slate-50 disabled:opacity-50"><i class="fa-solid fa-chevron-left"></i></button>
+                <div id="page-numbers" class="flex gap-2"></div>
+                <button id="next-page" class="px-4 py-2 bg-white border-2 rounded-lg hover:bg-slate-50 disabled:opacity-50"><i class="fa-solid fa-chevron-right"></i></button>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.25 Product Description View -->
+      <section id="view-product" class="view hidden py-12 px-4 max-w-5xl mx-auto min-h-screen">
+        <div class="mb-6">
+           <button class="nav-link text-cyan-600 font-medium hover:underline text-sm flex items-center gap-2" data-route="ecommerce"><i class="fa-solid fa-arrow-left"></i> Back to Shop</button>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10 bg-white p-6 md:p-10 rounded-2xl shadow-sm border-2">
+           <div class="flex flex-col gap-4">
+              <div class="rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center relative">
+                 <img id="product-detail-image" src="" alt="Product" class="w-full h-auto object-cover max-h-[500px]" />
+                 <div id="product-detail-dots" class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10"></div>
+              </div>
+           </div>
+           <div class="flex flex-col justify-center">
+              <div class="uppercase tracking-widest text-xs font-bold text-cyan-600 mb-2" id="product-detail-category">Category</div>
+              <h1 class="text-3xl md:text-5xl font-black text-slate-800 mb-4" id="product-detail-title">Product Name</h1>
+              
+              <div id="product-detail-variants-container" class="mb-6 hidden">
+                 <label class="block text-sm font-semibold text-slate-700 mb-2">Select Variant</label>
+                 <select id="product-detail-variant-select" class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all"></select>
+              </div>
+
+              <div class="text-4xl font-bold text-slate-800 mb-6" id="product-detail-price">৳0.00</div>
+              <div class="flex flex-col gap-3 mb-8">
+                 <button id="product-detail-add-btn" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-3 text-lg">
+                    <i class="fa-solid fa-cart-shopping"></i> <span id="product-detail-add-text">Add to Cart</span> <span id="product-detail-in-cart-count" class="hidden bg-slate-800 text-white text-xs font-bold px-2 py-0.5 rounded-full ml-1"></span>
+                 </button>
+              </div>
+              
+              <h3 class="text-xl font-bold text-slate-800 mb-3 border-t border-slate-100 pt-6">Description</h3>
+              <p class="text-slate-600 text-lg leading-relaxed whitespace-pre-wrap" id="product-detail-desc">Product description goes here.</p>
+           </div>
+        </div>
+        
+        <!-- Description is now shown in the top part, long description is redundant if not used, but I'll hide it for now -->
+        <div class="mt-12 bg-white p-8 rounded-2xl shadow-sm border-2 hidden">
+            <h3 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-2">Description</h3>
+            <p class="text-slate-600 leading-relaxed text-lg" id="product-detail-long-desc"></p>
+        </div>
+      </section>
+
+      <!-- 3.5 Checkout View -->
+      <section id="view-checkout" class="view hidden py-12 px-4 max-w-5xl mx-auto min-h-screen">
+        <div class="mb-4">
+           <button class="nav-link text-cyan-600 font-medium hover:underline text-sm flex items-center gap-2" data-route="ecommerce"><i class="fa-solid fa-arrow-left"></i> Back to Shopping</button>
+        </div>
+        <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center border-b pb-4">Checkout</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+           
+           <!-- Order Items Summary -->
+           <div class="bg-white p-6 rounded-2xl shadow-sm border-2 flex flex-col">
+             <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">Order Summary</h3>
+             <div id="checkout-items" class="flex flex-col gap-3 max-h-96 overflow-y-auto mb-4 pr-2 flex-grow">
+                <!-- Injected via JS -->
+             </div>
+             
+             <!-- Coupon Section -->
+             <div class="mt-4 mb-4 flex gap-2">
+               <input type="text" id="chk-coupon" placeholder="Coupon Code" class="w-full border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-cyan-500 outline-none uppercase font-mono">
+               <button type="button" id="chk-coupon-btn" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 rounded-lg transition-colors whitespace-nowrap">Apply</button>
+             </div>
+             <p id="coupon-msg" class="text-sm text-emerald-600 font-bold hidden mb-2">Discount applied!</p>
+
+             <div class="border-t pt-4 space-y-2 mb-4">
+               <div class="flex justify-between text-slate-600 font-medium">
+                 <span>Sub-Total:</span>
+                 <span id="checkout-subtotal">৳0.00</span>
+               </div>
+               <div class="flex justify-between text-slate-600 font-medium">
+                 <span>Delivery Fee:</span>
+                 <span id="checkout-delivery">৳100</span>
+               </div>
+             </div>
+
+             <div class="flex justify-between font-bold text-xl pt-4 border-t">
+               <span>Total:</span>
+               <span id="checkout-total">৳0.00</span>
+             </div>
+           </div>
+
+           <!-- Customer form & Payment options -->
+           <div class="bg-white p-6 rounded-2xl shadow-sm border-2">
+             <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">Delivery Details</h3>
+             <form id="checkout-form" class="flex flex-col gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Full Name *</label>
+                  <input type="text" id="chk-name" required class="w-full border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-cyan-500 outline-none">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Organization Name</label>
+                  <input type="text" id="chk-org" class="w-full border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="Optional">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Phone Number *</label>
+                  <input type="tel" id="chk-phone" required class="w-full border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-cyan-500 outline-none">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Full Address *</label>
+                  <textarea id="chk-address" required rows="2" class="w-full border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-cyan-500 outline-none"></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-600 mb-1">Special Instructions</label>
+                  <textarea id="chk-notes" rows="2" class="w-full border border-slate-300 rounded-lg p-2.5 focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="Optional notes for delivery"></textarea>
+                </div>
+                
+                <h3 class="text-lg font-bold text-slate-800 mt-4 border-b pb-2">Payment Method</h3>
+                <input type="hidden" id="checkout-payment-method" name="checkout-payment" value="Cash on Delivery">
+                
+                <div class="flex flex-col gap-3 mt-3">
+                  <!-- Option 1: Cash on Delivery -->
+                  <div class="payment-option-container border-2 border-cyan-500 bg-cyan-50/30 rounded-xl overflow-hidden transition-all duration-200 cursor-pointer" data-value="Cash on Delivery">
+                    <button type="button" class="payment-option-btn w-full flex items-center justify-between p-4 font-bold text-slate-800 focus:outline-none text-left">
+                      <div class="flex items-center gap-3">
+                        <span class="w-5 h-5 rounded-full border-2 border-cyan-500 flex items-center justify-center p-0.5">
+                          <span class="w-4 h-4 rounded-full bg-cyan-500" id="payment-dot-cod"></span>
+                        </span>
+                        <span>Cash on Delivery</span>
+                      </div>
+                      <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200 rotate-180" id="payment-arrow-cod"></i>
+                    </button>
+                    <div class="payment-option-details p-4 pt-0 text-sm text-slate-600 border-t border-slate-100" id="payment-details-cod">
+                      Place order & Pay when you receive.
+                    </div>
+                  </div>
+
+                  <!-- Option 2: bKash/Rocket/Nagad -->
+                  <div class="payment-option-container border-2 border-slate-200 hover:border-cyan-200 rounded-xl overflow-hidden transition-all duration-200 cursor-pointer" data-value="Bkash/Rocket/Nagad">
+                    <button type="button" class="payment-option-btn w-full flex items-center justify-between p-4 font-bold text-slate-800 focus:outline-none text-left">
+                      <div class="flex items-center gap-3">
+                        <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center p-0.5">
+                          <span class="w-4 h-4 rounded-full bg-transparent" id="payment-dot-bkash"></span>
+                        </span>
+                        <span>Bkash/Rocket/Nagad</span>
+                      </div>
+                      <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200" id="payment-arrow-bkash"></i>
+                    </button>
+                    <div class="payment-option-details p-4 pt-0 text-sm text-slate-600 border-t border-slate-100 hidden" id="payment-details-bkash">
+                      <p class="mb-2">Complete send-money &gt; Place order &gt; Send TxID to our WhatsApp.</p>
+                      <span class="font-bold text-slate-700 block mb-1">Send Money Numbers:</span>
+                      <div class="space-y-1 bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-sans">
+                        <div class="flex items-center justify-between"><span class="font-semibold text-slate-600">Bkash:</span> <span class="font-mono select-all text-cyan-700 font-bold">01972785642</span></div>
+                        <div class="flex items-center justify-between"><span class="font-semibold text-slate-600">Rocket:</span> <span class="font-mono select-all text-cyan-700 font-bold">015322961190</span></div>
+                        <div class="flex items-center justify-between"><span class="font-semibold text-slate-600">Nagad:</span> <span class="font-mono select-all text-cyan-700 font-bold">01532296119</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Option 3: Pay by Bank -->
+                  <div class="payment-option-container border-2 border-slate-200 hover:border-cyan-200 rounded-xl overflow-hidden transition-all duration-200 cursor-pointer" data-value="Pay by Bank">
+                    <button type="button" class="payment-option-btn w-full flex items-center justify-between p-4 font-bold text-slate-800 focus:outline-none text-left">
+                      <div class="flex items-center gap-3">
+                        <span class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center p-0.5">
+                          <span class="w-4 h-4 rounded-full bg-transparent" id="payment-dot-nagad"></span>
+                        </span>
+                        <span>Pay by Bank</span>
+                      </div>
+                      <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200" id="payment-arrow-nagad"></i>
+                    </button>
+                    <div class="payment-option-details p-4 pt-0 text-sm text-slate-600 border-t border-slate-100 hidden" id="payment-details-nagad">
+                      <p class="mb-2">Complete send-money &gt; Place order &gt; Send TxID to our WhatsApp.</p>
+                      <div class="space-y-1 bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-sans">
+                        <div><span class="font-semibold text-slate-600">Account Name:</span> <span class="text-slate-800">Mahmudul Hasan</span></div>
+                        <div><span class="font-semibold text-slate-600">Account Number:</span> <span class="font-mono select-all text-cyan-700 font-bold">4404001032386</span></div>
+                        <div><span class="font-semibold text-slate-600">Bank:</span> <span class="text-slate-800">Sonali Bank, BUET Branch</span></div>
+                        <div><span class="font-semibold text-slate-600">Method:</span> <span class="text-slate-800">NPSB</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 bg-yellow-50 text-yellow-800 text-xs p-3 rounded-lg border border-yellow-200">
+                  <i class="fa-solid fa-circle-info mr-1"></i> Upon order completion, you will be prompted to send the order details via WhatsApp to confirm.
+                </div>
+
+                <!-- Terms & Conditions Section -->
+                <div class="mt-4 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3 font-sans">
+                  <div class="text-xs text-slate-500 leading-relaxed">
+                    Most of our products fall under the DIY or electronics categories; these products do not come with a warranty. For products priced above 20,000 BDT, the specified service warranty period will apply. Please tick to agree to these terms and conditions before placing your order.
+                  </div>
+                  <label class="flex items-start gap-2.5 cursor-pointer select-none">
+                    <input type="checkbox" id="chk-terms" class="mt-1 w-4 h-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer" required>
+                    <span class="text-sm font-semibold text-slate-700">I have agreed with the Terms & Conditions.</span>
+                  </label>
+                </div>
+
+                <div id="submit-btn-container">
+                  <button type="submit" id="checkout-submit-btn" disabled class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 rounded-xl transition-colors shadow-md mt-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                     Complete & Send via WhatsApp
+                  </button>
+                </div>
+             </form>
+           </div>
+        </div>
+      </section>
+
+      <!-- 4. Solar Expertise View -->
+      <section id="view-solar" class="view hidden py-12 px-4 max-w-5xl mx-auto min-h-screen">
+        <h2 class="text-3xl font-bold text-slate-800 mb-12 text-center border-b pb-4">Tools & Solutions</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
+           <button class="solar-action-btn flex flex-col items-center text-center p-8 bg-white border-2 rounded-xl shadow-sm hover:shadow-lg hover:border-yellow-400 transition-all cursor-pointer" data-type="A2Z Setup">
+              <div class="w-20 h-20 rounded-full bg-yellow-100 flex items-center justify-center mb-6 text-yellow-600 text-4xl">
+                 <i class="fa-solid fa-tools"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-slate-800">Installation & Setup</h3>
+              <p class="text-slate-500">From inspection and capacity planning to full installation. Let us make you self-reliant.</p>
+           </button>
+
+           <button class="nav-link flex flex-col items-center text-center p-8 bg-white border-2 rounded-xl shadow-sm hover:shadow-lg hover:border-cyan-400 transition-all cursor-pointer" data-route="ecommerce" data-category="tools">
+              <div class="w-20 h-20 rounded-full bg-cyan-100 flex items-center justify-center mb-6 text-cyan-600 text-4xl">
+                 <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-slate-800">Purchase Tools & Solutions</h3>
+              <p class="text-slate-500">Browse our tested tools and solutions in our shop.</p>
+           </button>
+        </div>
+
+        <div id="solar-form-container" class="hidden bg-white p-8 rounded-2xl shadow-lg border border-slate-100 max-w-2xl mx-auto mt-4">
+           <h3 class="text-xl font-bold mb-6 text-slate-800">Book an Inspection / Setup</h3>
+           <form id="solar-form" class="flex flex-col gap-5">
+              <input type="hidden" id="solar-type-input" value="Installation Request" />
+              <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Your Name / Rep *</label>
+                <input type="text" id="solar-name" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-yellow-500 outline-none transition">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Property Type & Energy Need *</label>
+                <textarea id="solar-desc" required rows="4" class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-yellow-500 outline-none transition" placeholder="Is this for a home or office? Describe your typical energy consumption."></textarea>
+              </div>
+              <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-colors flex justify-center items-center gap-2 mt-2">
+                 <i class="fa-brands fa-whatsapp text-xl"></i> Contact via WhatsApp
+              </button>
+           </form>
+        </div>
+      </section>
+
+      <!-- 5. About Us View -->
+      <section id="view-about" class="view hidden max-w-4xl mx-auto py-16 px-4 text-center min-h-screen">
+         <h1 id="about-title" class="text-4xl font-bold text-slate-800 mb-6"></h1>
+         <div class="w-24 h-1 bg-cyan-600 mx-auto mb-8"></div>
+         <p id="about-text" class="text-lg text-slate-600 leading-relaxed mb-10"></p>
+      </section>
+
+      <!-- 6. Why Us View -->
+      <section id="view-why" class="view hidden max-w-5xl mx-auto py-16 px-4 text-center min-h-screen">
+         <h1 id="why-title" class="text-4xl font-bold text-slate-800 mb-6"></h1>
+         <div class="w-24 h-1 bg-cyan-600 mx-auto mb-12"></div>
+         <div id="why-grid" class="grid md:grid-cols-2 gap-6 text-left">
+         </div>
+      </section>
+
+      <!-- 7. Contact Us View -->
+      <section id="view-contact" class="view hidden max-w-3xl mx-auto py-16 px-4 text-center min-h-screen">
+         <h1 class="text-4xl font-bold text-slate-800 mb-6">Contact Us</h1>
+         <div class="w-24 h-1 bg-cyan-600 mx-auto mb-12"></div>
+         
+         <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border-2 flex flex-col items-center">
+            <i class="fa-regular fa-envelope text-4xl text-cyan-600 mb-6"></i>
+            <p class="text-lg text-slate-600 mb-2">Email: <a id="contact-email" href="" class="text-cyan-600 hover:underline"></a></p>
+            <p class="text-lg text-slate-600 mb-2">Phone: <a id="contact-phone" href="" class="text-cyan-600 hover:underline"></a></p>
+            <p id="contact-address" class="text-lg text-slate-600 mb-8 border-t border-slate-100 pt-4 mt-2">Address: </p>
+            
+            <div id="contact-socials" class="flex gap-4 mb-8 text-2xl text-slate-400">
+            </div>
+
+            <a id="contact-wa-link" href="#" target="_blank" class="bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-4 px-8 rounded-xl transition-all flex items-center gap-3 text-lg shadow">
+               <i class="fa-brands fa-whatsapp text-2xl"></i> Chat on WhatsApp
+            </a>
+         </div>
+      </section>
+
+      <!-- Additional Footers pages -->
+      <section id="view-privacy" class="view hidden max-w-4xl mx-auto py-16 px-4 min-h-screen">
+          <h1 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-4">Privacy Policy</h1>
+          <p class="text-slate-600">Your privacy is important to us. WingsTech will only use your data to process orders and improve services. We do not sell your data to third parties.</p>
+      </section>
+      
+      <section id="view-security" class="view hidden max-w-4xl mx-auto py-16 px-4 min-h-screen">
+          <h1 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-4">Security Standards</h1>
+          <p class="text-slate-600">All payments and data passed through WingsTech's portal use standard encryption. WhatsApp communications are secured end-to-end.</p>
+      </section>
+      
+      <section id="view-sitemap" class="view hidden max-w-4xl mx-auto py-16 px-4 min-h-screen">
+          <h1 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-4">Sitemap</h1>
+          <ul class="list-disc pl-6 text-slate-600 flex flex-col gap-2">
+            <li><a href="#home" data-route="home" class="nav-link hover:underline text-cyan-600">Home</a></li>
+            <li><a href="#rnd" data-route="rnd" class="nav-link hover:underline text-cyan-600">R&D Portfolio</a></li>
+            <li><a href="#ecommerce" data-route="ecommerce" class="nav-link hover:underline text-cyan-600">Products</a></li>
+            <li><a href="#solar" data-route="solar" class="nav-link hover:underline text-cyan-600">Tools & Solutions</a></li>
+            <li><a href="#checkout" data-route="checkout" class="nav-link hover:underline text-cyan-600">Checkout</a></li>
+            <li><a href="#about" data-route="about" class="nav-link hover:underline text-cyan-600">About Us</a></li>
+            <li><a href="#contact" data-route="contact" class="nav-link hover:underline text-cyan-600">Contact Us</a></li>
+          </ul>
+      </section>
+
+    </main>
+
+    <!-- Dummy Payment Modal -->
+    <div id="payment-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 relative flex flex-col items-center text-center">
+         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-600 mb-4" id="pmt-spinner"></div>
+         <i class="fa-solid fa-circle-check text-5xl text-emerald-500 mb-4 hidden" id="pmt-success"></i>
+         <h3 class="text-xl font-bold text-slate-800 mb-2" id="pmt-title">Processing Payment...</h3>
+         <p class="text-slate-500 text-sm mb-4" id="pmt-desc">Please do not close this window.</p>
+         <button id="close-pmt-btn" class="hidden bg-slate-800 text-white font-bold py-2 px-6 rounded-lg hover:bg-slate-900 transition-colors mt-2">Continue</button>
+      </div>
+    </div>
+
+    <!-- Global Floating Cart Trigger (Mobile) -->
+    <button id="cart-toggle-btn" class="fixed bottom-6 right-6 w-14 h-14 bg-cyan-600 text-white rounded-full shadow-xl flex items-center justify-center text-2xl z-40 hidden transition-transform hover:scale-110">
+       <i class="fa-solid fa-cart-shopping"></i>
+       <span id="cart-float-badge" class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white pt-8 pb-4 flex flex-col mt-auto text-sm text-slate-600">
+      
+      <!-- Footer Logo -->
+      <div class="flex justify-center mb-6">
+        <img id="global-logo-footer" src="" alt="WingsTech Logo" class="h-8 object-contain">
+      </div>
+
+      <!-- Top Links row -->
+      <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mb-6 font-semibold uppercase tracking-wider text-xs">
+          <a href="#about" data-route="about" class="nav-link hover:text-cyan-600 transition-colors">About Us</a>
+          <a href="#contact" data-route="contact" class="nav-link hover:text-cyan-600 transition-colors">Contact Us</a>
+          <a href="#why" data-route="why" class="nav-link hover:text-cyan-600 transition-colors">Why Us</a>
+      </div>
+
+      <!-- Bottom split -->
+      <div class="max-w-7xl mx-auto w-full px-4 flex flex-col md:flex-row items-center justify-between border-t border-slate-100 pt-4 text-xs">
+        <div class="mb-2 md:mb-0">&copy; 2026 WingsTech Global Solutions. All rights reserved.</div>
+        <div class="flex gap-4">
+          <a href="#privacy" data-route="privacy" class="nav-link hover:text-cyan-600 transition-colors">Privacy Policy</a>
+          <a href="#security" data-route="security" class="nav-link hover:text-cyan-600 transition-colors">Security Standards</a>
+          <a href="#sitemap" data-route="sitemap" class="nav-link hover:text-cyan-600 transition-colors">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .view { display: none; opacity: 0; animation: fadeIn 0.4s ease forwards; }
+      .view.active { display: block; }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+    </style>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
