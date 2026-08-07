@@ -10,7 +10,7 @@ export interface SiteAssets {
 
 export const SITE_ASSETS: SiteAssets = {
   logoURL: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/LogoLight.png?w=90&h=90&fit=crop', // Add your logo image here
-  faviconUrl: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/LogoLight.png?w=90&h=90&fit=crop',
+  faviconUrl: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/Favicon.png?w=90&h=90&fit=crop',
   hero_rnd: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/RnD_Image.png?auto=format&fit=crop&q=80', 
   hero_robots: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/Robots.png?auto=format&fit=crop&q=80',
   hero_solar: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80'
