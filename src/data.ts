@@ -9,10 +9,10 @@ export interface SiteAssets {
 }
 
 export const SITE_ASSETS: SiteAssets = {
-  logoURL: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/LogoLight.png?w=90&h=90&fit=crop', // Add your logo image here
-  faviconUrl: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/Favicon.png?w=100&h=100&fit=crop',
-  hero_rnd: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/RnD_Image.png?auto=format&fit=crop&q=80', 
-  hero_robots: 'https://raw.githubusercontent.com/Ohans8248/wingstech/main/Images/Robots.png?auto=format&fit=crop&q=80',
+  logoURL: 'https://raw.githubusercontent.com/Ohans8248/wingstech.web/main/Images/LogoLight.png?w=90&h=90&fit=crop', // Add your logo image here
+  faviconUrl: 'https://raw.githubusercontent.com/Ohans8248/wingstech.web/main/Images/Favicon.png?w=100&h=100&fit=crop',
+  hero_rnd: 'https://raw.githubusercontent.com/Ohans8248/wingstech.web/main/Images/RnD_Image.png?auto=format&fit=crop&q=80', 
+  hero_robots: 'https://raw.githubusercontent.com/Ohans8248/wingstech.web/main/Images/Robots.png?auto=format&fit=crop&q=80',
   hero_solar: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80'
 };
 
@@ -38,7 +38,7 @@ export interface WebsiteContent {
 }
 
 export const SITE_TEXT: WebsiteContent = {
-  hero_1_title: "R&D Solutions",
+  hero_1_title: "Industry R&D Solutions",
   hero_1_desc: "We can provide custom hi-tech solutions to any of your engineering problems!",
   hero_2_title: "Cutting-Edge Robots",
   hero_2_desc: "Need robots to learn or for industry? We have a rich collection of robots & tools!",
